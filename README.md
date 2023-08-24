@@ -8,7 +8,7 @@
     Добавлен пользователь test
 
     bastion_IP = 158.160.119.245
-    someinternalhost_IP = 10.128.0.30
+    someinternalhost_IP = 10.128.0.30 
     
 
     
