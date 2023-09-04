@@ -2,16 +2,15 @@
   "builders": [
       {
           "type": "yandex",
-          "service_account_key_file": "{{ user `service_account_key_file` }}",
-          "folder_id": "{{ user `folder_id` }}",
-          "source_image_family": "{{ user `source_image_family` }}",
-          "image_name": "reddit-base-{{timestamp}}",
+          "service_account_key_file": "/home/ubuntu/git/key.json",
+          "folder_id": "b1g5q2lccug3i0j92ksh",
+          "source_image_family": "ubuntu-1604-lts",
+          "image_name": "reddit-base-${formatdate("MM-DD-YYYY", timestamp())}",
           "image_family": "reddit-base",
           "ssh_username": "ubuntu",
           "platform_id" : "standard-v1",
           "zone": "{{user `zone`}}",
           "use_ipv4_nat": "{{ user `use_ipv4_nat`}}"
-
       }
   ],
   "provisioners": [
