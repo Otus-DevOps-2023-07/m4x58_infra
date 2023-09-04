@@ -1,4 +1,20 @@
 {
+    variable "service_account_key_file" {
+        type    = string
+        default = null
+      }
+      variable "folder_id" {
+        type    = string
+        default = null
+      }
+      variable "source_image_family" {
+        type    = string
+        default = null
+      }
+      variable "ssh_username" {
+        type    = string
+        default = null
+      }
   "builders": [
     {
               "type": "yandex",
@@ -28,4 +44,6 @@
       ]
     }
   ]
+
+
 }
