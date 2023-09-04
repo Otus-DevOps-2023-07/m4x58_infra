@@ -1,49 +1,36 @@
 {
-    variable "service_account_key_file" {
-        type    = string
-        default = null
-      }
-      variable "folder_id" {
-        type    = string
-        default = null
-      }
-      variable "source_image_family" {
-        type    = string
-        default = null
-      }
-      variable "ssh_username" {
-        type    = string
-        default = null
-      }
   "builders": [
-    {
-              "type": "yandex",
-              "service_account_key_file": "{{user `service_account_key_file`}}",
-              "folder_id": "{{user `folder_id`}}",
-              "source_image_family": "{{user `source_image_family`}}",
-              "image_name": "reddit-basejson-Q${formatdate(\"MM-DD-YYYY\", timestamp())}",
-              "image_family": "reddit-basejson",
-              "ssh_username": "{{user `ssh_username`}}",
-              "platform_id": "standard-v1",
-              "use_ipv4_nat": true
-    }
+      {
+          "type": "yandex",
+          "service_account_key_file": "/home/ubuntu/git/key.json",
+          "folder_id": "b1g5q2lccug3i0j92ksh",
+          "source_image_family": "ubuntu-1604-lts",
+          "image_name": "reddit-base-${formatdate("MM-DD-YYYY", timestamp())}",
+          "image_family": "reddit-base",
+          "ssh_username": "ubuntu",
+          "platform_id" : "standard-v1",
+          "zone": "{{user `zone`}}",
+          "use_ipv4_nat": "{{ user `use_ipv4_nat`}}"
+      }
   ],
   "provisioners": [
-    {
-      "type": "shell",
-      "inline": [
-                "echo 'updating APT'",
-                "sudo apt-get update -y",
-                "sleep 10",
-                "echo 'install ruby'",
-                "sudo apt-get install -y ruby-full ruby-bundler build-essential",
-                "sleep 10",
-                "echo 'install mongodb'",
-                "sudo apt-get install -y mongodb",
-                "sudo systemctl enable mongodb"
-      ]
-    }
+      {
+          "type": "shell",
+          "inline": [
+              "echo Waiting for apt-get to finish...",
+              "a=1; while [ -n \"$(pgrep apt-get)\" ]; do echo $a; sleep 1s; a=$(expr $a + 1); done",
+              "echo Done."
+          ]
+      },
+      {
+          "type": "shell",
+          "script": "./scripts/install_ruby.sh",
+          "execute_command": "sudo {{.Path}}"
+      },
+      {
+          "type": "shell",
+          "script": "./scripts/install_mongodb.sh",
+          "execute_command": "sudo {{.Path}}"
+      }
   ]
-
-
 }
