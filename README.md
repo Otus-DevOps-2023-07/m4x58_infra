@@ -22,3 +22,7 @@
 
 testapp_IP = 158.160.123.2
 testapp_port = 9292
+
+
+ДЗ № 5
+
