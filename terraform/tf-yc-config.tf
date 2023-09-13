@@ -15,7 +15,7 @@ provider "yandex" {
 }
 
 #provider "yande" {
-# token     = "yHn_SAXcQ8uebbr-LBXDN2x3mnQ"
+# token     = "ySAXcQ8uebbr-LBXDN2x3mnQ"
 #cloud_id  = "b1gfnnr7dn30ornsm35s"
 #folder_id = "b1g5q2lccug3i0j92ksh"
 #zone      = "ru-central1-a"
