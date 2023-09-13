@@ -14,8 +14,8 @@ provider "yandex" {
   zone                     = var.zone
 }
 
-#provider "yandex" {
-# token     = "y0_AgAAAAADiYdUAATuwQAAAADrR12evHn_SAXcQ8uebbr-LBXDN2x3mnQ"
+#provider "yande" {
+# token     = "yHn_SAXcQ8uebbr-LBXDN2x3mnQ"
 #cloud_id  = "b1gfnnr7dn30ornsm35s"
 #folder_id = "b1g5q2lccug3i0j92ksh"
 #zone      = "ru-central1-a"
