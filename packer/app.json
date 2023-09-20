@@ -6,7 +6,7 @@
             "folder_id": "{{user `folder_id`}}",
             "image_name": "app-{{timestamp}}",
             "source_image_family": "{{user `source_image_family`}}",
-            "ssh_username": "{{user `ssh_username`}}",
+            "ssh_username": "ubuntu",
             "use_ipv4_nat": "true",
             "zone": "{{user `zone`}}",
             "platform_id": "standard-v1"
