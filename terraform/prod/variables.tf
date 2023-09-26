@@ -3,6 +3,7 @@ variable "cloud_id" {
 }
 variable "folder_id" {
   description = "Folder"
+  default = "b1g5q2lccug3i0j92ksh"
 }
 variable "zone" {
   description = "Zone"
@@ -14,8 +15,9 @@ variable "public_key_path" {
   description = "~/.ssh/yc-user.pub"
 }
 variable "private_key_path" {
-  # Описание переменной private key
-  description = "~/.ssh/yc-user"
+    # Описание переменной private key
+  description = "Path to the private key"
+  default = "~/.ssh/yc-user"
 }
 variable "image_id" {
   description = "Disk image"
