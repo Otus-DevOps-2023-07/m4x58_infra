@@ -1,12 +1,3 @@
-#terraform {
-#  required_providers {
-#    yandex = {
-#     source = "yandex-cloud/yandex"
-#    }
-#  }
-#  required_version = ">= 0.13"
-#}
-
 resource "yandex_compute_instance" "db" {
   name = "reddit-db"
   labels = {
@@ -24,10 +15,9 @@ resource "yandex_compute_instance" "db" {
     }
   }
 
-  network_interface {
-    #subnet_id = yandex_vpc_subnet.app-subnet.id
+ network_interface {
     subnet_id = var.subnet_id
-    nat = true
+    nat       = true
   }
 
   metadata = {
