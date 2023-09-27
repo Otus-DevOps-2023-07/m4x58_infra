@@ -35,4 +35,3 @@ image_id                 = var.image_id
 cloud_id                 = var.cloud_id
 private_key_path         = var.private_key_path
 }
-
