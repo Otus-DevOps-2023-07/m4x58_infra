@@ -12,7 +12,7 @@
           "zone": "{{user `zone`}}",
           "use_ipv4_nat": "{{ user `use_ipv4_nat`}}"
       }
-  ]
+  ],
 
 "provisioners": [
     {
