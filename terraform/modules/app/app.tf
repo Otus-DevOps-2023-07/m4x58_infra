@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+  required_version = ">= 0.13"
+}
 resource "yandex_compute_instance" "app" {
   name = "reddit-app"
   labels = {
@@ -15,8 +23,12 @@ resource "yandex_compute_instance" "app" {
     }
   }
 
+  scheduling_policy {
+    preemptible = true
+  }
+
   network_interface {
-    subnet_id = yandex_vpc_subnet.app-subnet.id
+    subnet_id = var.subnet_id
     nat       = true
   }
 

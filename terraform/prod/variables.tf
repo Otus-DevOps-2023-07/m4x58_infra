@@ -1,5 +1,6 @@
 variable "cloud_id" {
   description = "Cloud"
+  default="b1gfnnr7dn30ornsm35s"
 }
 variable "folder_id" {
   description = "Folder"
@@ -19,6 +20,7 @@ variable "private_key_path" {
 }
 variable "image_id" {
   description = "Disk image"
+  default = "fd8tthd2hjdt9r1s3cl0"
 }
 variable "subnet_id" {
   description = "Subnet"

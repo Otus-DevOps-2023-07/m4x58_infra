@@ -55,5 +55,4 @@
     service: name=mongod state=restarted
   - name: reload puma
     become: true
-    systemd: name=puma state=restarted
-    
+    systemd: name=puma state=restarted    

@@ -1,4 +1,3 @@
-
 ---
 - name: Install MongoDB 3.2
   hosts: all
@@ -7,14 +6,14 @@
   # Добавим ключ репозитория для последующей работы с ним
   - name: Add APT key
     apt_key:
-      id: EA312927
-      keyserver: keyserver.ubuntu.com
+        url: https://www.mongodb.org/static/pgp/server-4.4.asc
+        state: present
 
   # Подключаем репозиторий с пакетами mongodb
   - name: Add APT repository
     apt_repository:
-      repo: deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
-      state: present
+        repo: deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse
+        state: present
 
   # Выполним установку пакета
   - name: Install mongodb package
@@ -26,5 +25,4 @@
   - name: Configure service supervisor
     systemd:
       name: mongod
-      enabled: yes
-      
+      enabled: yes      
