@@ -1,5 +1,7 @@
 {
     "builders": [
+
+
       {
           "type": "yandex",
           "service_account_key_file": "key.json.example",
@@ -18,6 +20,7 @@
             "type": "shell",
             "script": "./scripts/install_mongodb.sh",
             "execute_command": "sudo {{.Path}}"
+
         }
     ]
 }
