@@ -1,5 +1,5 @@
 db_host: 158.160.105.124
-
+# db_host: "{{ db_host_internal }}"
 nginx_sites:
   default:
     - listen 80

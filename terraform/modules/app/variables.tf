@@ -43,7 +43,12 @@ variable "db_ip" {
   default     = "127.0.0.1"
 }
 variable "provision" {
-  description = "Enable provisioning or not"
+ description = "Enable provisioning or not"
   type        = bool
   default     = false
+}
+
+variable "environment" {
+  description = "prod or stage"
+  default = "prod"
 }
