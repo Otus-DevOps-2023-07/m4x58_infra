@@ -6,4 +6,5 @@
 
     "zone": "<zone>",
     "subnet": "<subnet>",
-    "use_ipv4_nat": "tru
+    "use_ipv4_nat": "true"
+}
