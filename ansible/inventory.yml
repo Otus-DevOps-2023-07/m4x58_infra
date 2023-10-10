@@ -9,4 +9,3 @@ all:
       hosts:
         dbserver:
           ansible_host: 84.201.157.157
-          

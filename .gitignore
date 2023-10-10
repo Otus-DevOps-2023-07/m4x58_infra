@@ -5,5 +5,7 @@ variables.json
 *.tfstate.backup
 *.tfvars
 .terraform/
+ ansible-3
 *.retry
 jdauphant.nginx
+
