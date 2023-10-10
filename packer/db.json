@@ -4,7 +4,7 @@
 
       {
           "type": "yandex",
-          "service_account_key_file": "key.json.example",
+          "service_account_key_file": "packer/key.json.example",
           "folder_id": "b1g5q2lccug3i0j92ksh",
           "source_image_family": "ubuntu-1604-lts",
           "image_name": "reddit-basejson-Q${formatdate(\"MM-DD-YYYY\", timestamp())}",
@@ -18,7 +18,8 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "./scripts/install_mongodb.sh",
+
+            "script": "packer/scripts/install_mongodb.sh",
             "execute_command": "sudo {{.Path}}"
 
         }
