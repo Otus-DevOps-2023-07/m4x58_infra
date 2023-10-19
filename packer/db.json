@@ -1,32 +1,27 @@
 {
     "builders": [
+
+
       {
           "type": "yandex",
-          "service_account_key_file": "/home/ubuntu/git/key.json",
+          "service_account_key_file": "packer/key.json.example",
           "folder_id": "b1g5q2lccug3i0j92ksh",
           "source_image_family": "ubuntu-1604-lts",
-          "image_name": "reddit-db-base-{{timestamp}}",
+          "image_name": "reddit-basejson-Q${formatdate(\"MM-DD-YYYY\", timestamp())}",
           "image_family": "reddit-base",
           "ssh_username": "ubuntu",
           "platform_id" : "standard-v1",
           "zone": "{{user `zone`}}",
-          "use_ipv4_nat": "true",
-          "preemptible" : "true"
+          "use_ipv4_nat": "{{ user `use_ipv4_nat`}}"
       }
   ],
+    "provisioners": [
+        {
+            "type": "shell",
 
-"provisioners": [
-    {
-        "type": "shell",
-        "inline": [
-            "echo Waiting for apt-get to finish...",
-            "a=1; while [ -n \"$(pgrep apt-get)\" ]; do echo $a; sleep 1s; a=$(expr $a + 1); done",
-            "echo Done."
-        ]
-    },
-    {
-    "type": "ansible",
-    "playbook_file": "ansible/playbooks/packer_db.yml"
-    }
+            "script": "packer/scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+
+        }
     ]
 }
