@@ -44,11 +44,8 @@
       bundler:
         state: present
         chdir: /home/ubuntu/reddit
-      tags: deploy-tag
-
-
-
-
+      tags: deploy-tag    
+    
   handlers: # <-- Добавим блок handlers и задачу
   - name: restart mongod
     become: true
@@ -56,5 +53,3 @@
   - name: reload puma
     become: true
     systemd: name=puma state=restarted
-
-    

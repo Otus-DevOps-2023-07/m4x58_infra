@@ -5,6 +5,7 @@ variables.json
 *.tfstate.backup
 *.tfvars
 .terraform/
+
 ansible-3
 *.retry
 jdauphant.nginx
@@ -16,3 +17,6 @@ vault.key
 .molecule
 .cache
 .pytest_cache
+
+
+
