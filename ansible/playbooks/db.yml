@@ -1,4 +1,5 @@
-- name: Configure MongoDB
+---
+- name: Configure mongoDB
   hosts: db
   become: true
 

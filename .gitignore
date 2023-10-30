@@ -5,7 +5,18 @@ variables.json
 *.tfstate.backup
 *.tfvars
 .terraform/
- ansible-3
+
+ansible-3
 *.retry
 jdauphant.nginx
+vault.key
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache
+
+
 
